@@ -10,14 +10,23 @@ const todoListSchema = new Schema({
         type: String,
         required: true
     },
-    createdAt: {
+    card_id: {
         type: String,
-        default: new Date(),
+        required: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now(),
         immutable: true
     },
     updatedAt: {
         type: Date,
-        default: new Date()
+        default: Date.now()
+    },
+    slug: {
+        type: String,
+        slug: 'todoTitle',
+        unique: true
     }
 })
 
@@ -67,6 +76,7 @@ const todoUserSchema = new Schema({
 });
 
 todoCardSchema.plugin(slugify)
+todoListSchema.plugin(slugify)
 
 
 const todoUserModel = mongoose.model('todos', todoUserSchema)

@@ -6,6 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><%= user.cardTitle %></h1>
+    <h1><%= card.cardTitle %></h1>
+    <form action="/todo/addTodoItem/<%=card.slug %>" method="post">
+        <input type="text" name="todo_item">
+        <input type="submit">
+    </form>
+
+    <div class="todo-item-holder">
+        <% card.todos.forEach( todo => { %>
+            <div>
+                <h2><%= todo.todoTitle %></h2>
+                <p> Created: <%= todo.createdAt.toLocaleDateString()%></p>
+                <p> Updated: <%= todo.updatedAt.toLocaleDateString()%></p>
+            </div>
+            <form action="/todo/deleteTodoItem/<%=todo.slug%>?_method=delete" method="post">
+                <input type="submit" value="delete">
+            </form>
+       <% }) %>
+    </div>
 </body>
 </html>
