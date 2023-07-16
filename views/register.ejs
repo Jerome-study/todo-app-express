@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Todo Website</title>
+</head>
+<body>
+    <div>
+        <form action="/authentication/register", method="post">
+            <div id="error-div">
+                <% if (errors.length > 0) { %>
+                    <% errors.forEach((e,index) => { %>
+                        <div>
+                            <div id=<%= index %> class="error-box"><%= e.message %></div>
+                            <div class="error-exit" id=<%= index %>>X</div>
+                        </div>
+                        
+                   <% }) %>
+               <% } %>
+            </div>
+           
+            
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="username" value="<%=username%>">
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" value="<%=email%>">
+            </div>
+
+            <div>
+                <label for="password">password</label>
+                <input type="password" name="password">
+            </div>
+
+            <div>
+                <label for="confirm_password">Confrim password</label>
+                <input type="password" name="confirm_password">
+            </div>
+            <button type="submit">Register Now</button>
+           
+        </form>
+    </div>
+    <script src="../js/register_index.js"></script>
+</body>
+</html>

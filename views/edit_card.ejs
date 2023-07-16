@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/todo/editcard/<%= card.slug %>?_method=put" method="post">
+        <label for="card_title">Card Title</label>
+        <input type="text" value="<%=card.cardTitle%>" name="card_title">
+        <input type="submit" value="edit">
+    </form>
+</body>
+</html>

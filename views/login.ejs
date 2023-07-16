@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Todo Website</title>
+</head>
+<body>
+    <div>
+        <form action="/authentication/login", method="post">
+            <%= successful_register %>
+            <%= message %>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email">
+            </div>
+            <div>
+                <label for="password">password</label>
+                <input type="password" name="password">
+            </div>
+            <button type="submit">Login Now</button>
+        </form>
+    </div>
+</body>
+</html>
