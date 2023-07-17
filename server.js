@@ -4,7 +4,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport')
 const mongoStore = require('connect-mongo');
-const { isAuth, loginAuth } = require('./middleware/isAuth');
+const { isAuth, loginAuth, logoutAuth} = require('./middleware/isAuth');
 const { createTodoUser } = require('./middleware/creatTodoUsers');
 const methodOverride = require('method-override');
 
@@ -19,7 +19,7 @@ require("dotenv").config();
 const authRouter = require('./routes/auth');
 const todoRouter = require('./routes/todo');
 const welcomeRouter = require('./routes/welcome');
-
+const logoutRouter = require('./routes/logout')
 
 // Database
 require('./database/database');
@@ -66,8 +66,9 @@ app.use(passport.session());
 app.use('/welcome', welcomeRouter);
 
 
-
+app.use('/authentication', logoutAuth, logoutRouter);
 app.use('/authentication', loginAuth, authRouter);
+
 
 
 

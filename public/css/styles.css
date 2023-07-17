@@ -24,3 +24,7 @@ display: block;
 html {
     color-scheme: dark light;
 }
+
+.hide-btn, .cancel-btn-todo {
+    display: none;
+}

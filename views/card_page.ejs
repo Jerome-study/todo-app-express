@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Document</title>
 </head>
 <body>
@@ -13,16 +14,23 @@
     </form>
 
     <div class="todo-item-holder">
-        <% card.todos.forEach( todo => { %>
-            <div>
-                <h2><%= todo.todoTitle %></h2>
-                <p> Created: <%= todo.createdAt.toLocaleDateString()%></p>
-                <p> Updated: <%= todo.updatedAt.toLocaleDateString()%></p>
-            </div>
-            <form action="/todo/deleteTodoItem/<%=todo.slug%>?_method=delete" method="post">
-                <input type="submit" value="delete">
+        <% card.todos.forEach((todo, index) => { %>
+            <form action="/todo/editTodoItem/<%=todo.slug%>?_method=put" method="post">
+                <div>
+                    <input type="text" value="<%= todo.todoTitle %>" name="todo_title" readonly class="input-box">
+                    <p> Created: <%= todo.createdAt.toLocaleDateString()%></p>
+                    <p> Updated: <%= todo.updatedAt.toLocaleDateString()%></p>
+                </div>
+                <input type="submit" value="Save" class="hide-btn">
             </form>
+            <button id="<%=index%>" class="edit-btn-todo">edit</button>
+            <button class="cancel-btn-todo">Cancel</button>
+            <form action="/todo/deleteTodoItem/<%=todo.slug%>?_method=delete" method="post">
+                <input type="submit" value="delete" class="delete-btn-todo">
+            </form>
+            
        <% }) %>
     </div>
+    <script src="/js/edit_index.js" ></script>
 </body>
 </html>

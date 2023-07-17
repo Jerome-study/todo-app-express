@@ -16,9 +16,19 @@ function loginAuth(req,res,next) {
   
 };
 
+function logoutAuth(req,res,next) {
+    const { user } = req;
+    if (!user) {
+        
+    };
+    next()
+  
+};
 
 
 
 
 
-module.exports = { isAuth, loginAuth };
+
+
+module.exports = { isAuth, loginAuth, logoutAuth };

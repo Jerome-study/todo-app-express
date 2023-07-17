@@ -35,6 +35,8 @@ router.post('/register', (req,res) => {
     registerUser(req,res);
 });
 
+// Logout
+
 
 
 

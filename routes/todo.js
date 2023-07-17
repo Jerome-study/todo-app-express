@@ -186,4 +186,40 @@ router.delete('/deleteTodoItem/:slug', async (req,res) => {
     res.redirect(`/todo/viewCard/${card.slug}`)
 });
 
+router.put('/editTodoItem/:slug', async (req,res) => {
+    
+    // Find Todo Item in List
+    const todoItem = await todoListModel.findOne({ slug: req.params.slug})
+    
+    // Find Card 
+    const card = await todoCardModel.findById(todoItem.card_id)
+
+    // Find Todo Index in Card
+    const todoIndex = card.todos.findIndex(card => card.slug === todoItem.slug)
+
+    // Find Todo User
+    const todoUser = await todoUserModel.findOne({_id: card.user_id});
+
+    // Find index of Card in Todo User
+    const cardIndex = todoUser.todoCard.findIndex(c => c.slug === card.slug );
+    
+   
+    todoItem.todoTitle = req.body.todo_title
+
+    await todoItem.save();
+
+    card.todos[todoIndex] = todoItem
+    todoUser.todoCard[cardIndex].todos[todoIndex] = todoItem;
+
+    card.markModified('todos')
+    todoUser.markModified('todoCard')
+
+  
+    await todoUser.save();
+    await card.save();
+   
+    res.redirect(`/todo/viewCard/${card.slug}`)
+    
+});
+
 module.exports = router;
