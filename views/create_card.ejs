@@ -9,6 +9,11 @@
     
     <form action="/todo/createCard/<%=slug %>" method="post">
         <div>
+            <% if (errors) { %>
+                <% errors.forEach(err => { %>
+                    <p> <%= err.message %></p>
+               <% }) %>
+           <% } %>
             <label for="card_title">Card Title</label>
             <input type="text" value="Card 1" name="card_title">
         </div>

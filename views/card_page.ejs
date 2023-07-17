@@ -7,9 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="/todo">Go back</a>
     <h1><%= card.cardTitle %></h1>
     <form action="/todo/addTodoItem/<%=card.slug %>" method="post">
-        <input type="text" name="todo_item">
+        <input type="text" name="todo_item" required>
         <input type="submit">
     </form>
 
@@ -17,7 +18,7 @@
         <% card.todos.forEach((todo, index) => { %>
             <form action="/todo/editTodoItem/<%=todo.slug%>?_method=put" method="post">
                 <div>
-                    <input type="text" value="<%= todo.todoTitle %>" name="todo_title" readonly class="input-box">
+                    <input type="text" value="<%= todo.todoTitle %>" name="todo_title" readonly class="input-box" required>
                     <p> Created: <%= todo.createdAt.toLocaleDateString()%></p>
                     <p> Updated: <%= todo.updatedAt.toLocaleDateString()%></p>
                 </div>
