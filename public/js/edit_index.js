@@ -26,9 +26,24 @@ editBtn.forEach(btn => {
 
 
 function editTodo() {
-    originalValue = textBox[this.id].value
+    reset();
+    originalValue = textBox[this.id].value;
     textBox[this.id].removeAttribute('readonly');
-    this.style.display ="none"
+    this.style.display ="none";
     hideBtn[this.id].style.display = "block";
-    cancelBtn[this.id].style.display = "block"
+    cancelBtn[this.id].style.display = "block";
+};
+
+function reset() {
+    editBtn.forEach( btn => {
+        btn.style.display = "block";
+    });
+
+    hideBtn.forEach(save => {
+        save.style.display = "none";
+    })
+
+    cancelBtn.forEach(cancel => {
+        cancel.style.display = "none";
+    });
 };

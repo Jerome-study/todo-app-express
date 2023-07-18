@@ -1,5 +1,7 @@
 const express = require('express');
 const { todoUserModel, todoListModel, todoCardModel } = require('../Schemas/todo_schema');
+const user = require('../Schemas/user_schema')
+
 const router = express.Router();
 
 
@@ -19,6 +21,26 @@ router.get('/viewCard/:slug', async (req,res) => {
     res.render('card_page', { card: todoCard});
 });
 
+// Api
+router.get('/api/userAccount', async (req,res) => {
+    const account = await user.find();
+    res.json(account)
+});
+
+router.get('/api/todoUserAccount', async (req,res) => {
+    const account = await todoUserModel.find();
+    res.json(account)
+});
+
+router.get('/api/todoCard', async (req,res) => {
+    const account = await todoCardModel.find();
+    res.json(account)
+});
+
+router.get('/api/todoList', async (req,res) => {
+    const account = await todoListModel.find();
+    res.json(account)
+});
 
 
 
