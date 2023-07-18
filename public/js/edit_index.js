@@ -23,7 +23,7 @@ editBtn.forEach(btn => {
 });
 
 
-cancelBtn.forEach
+
 
 function editTodo() {
     originalValue = textBox[this.id].value

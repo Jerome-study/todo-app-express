@@ -21,9 +21,9 @@
         <% if (todoCards.length !== 0) { %>
 
             <% todoCards.forEach(card => {%>
-
+                <h1><%= card.cardTitle %></h1>
                 <a class="box" id="<%= card.slug %>" href="todo/viewCard/<%=card.slug%>">
-                    <h1><%= card.cardTitle %></h1>
+                    <h1>View Card</h1>
                 </a>
                 <a class="box" id="<%= card.slug %>" href="todo/editcard/<%=card.slug%>">
                     <h1>Edit</h1>
