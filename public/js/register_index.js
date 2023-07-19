@@ -1,9 +1,14 @@
 const errorExit = document.querySelectorAll('.error-exit')
-const btn = document.getElementById('hehe')
 const errorBox = document.querySelectorAll('.error-box')
 const errorDiv = document.getElementById('error-div')
-
+const messageBox = document.querySelectorAll('.message')
 const errorHandler = []
+
+let errMess = []
+
+messageBox.forEach(err => {
+    errMess.push(err)
+})
 
 errorBox.forEach(box => {
     errorHandler.push(box)
@@ -18,13 +23,14 @@ errorExit.forEach(button => {
 })
 
 
-function clearField(id,button) {
-    errorHandler.forEach(e => {
-        if (e.id === id) {
-            e.innerText = ""
-            button.innerText = ""
-        }  else {
-            return
+function clearField(id) {
+
+    messageBox.forEach(box => {
+        if (box.id === id) {
+            box.remove()
         }
     })
+    
+   
+   
 }

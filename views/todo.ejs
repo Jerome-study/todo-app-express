@@ -7,34 +7,44 @@
     <title>Todo Website</title>
 </head>
 <body>
-    <form action="/authentication/logout?_method=DELETE" method="post">
-        <input type="submit" value="Logout">
-    </form>
-    <div>
+
+    <section class="todo-section">
         <div class="container">
-            <h1>todos</h1>
-        </div>
-    </div>
-    <a href="/todo/addCard/<%=user.slug %>">Add Card</a> 
-
-    <div class="cards-holder">
-        <% if (todoCards.length !== 0) { %>
-
-            <% todoCards.forEach(card => {%>
-                <h1><%= card.cardTitle %></h1>
-                <a class="box" id="<%= card.slug %>" href="todo/viewCard/<%=card.slug%>">
-                    <h1>View Card</h1>
-                </a>
-                <a class="box" id="<%= card.slug %>" href="todo/editcard/<%=card.slug%>">
-                    <h1>Edit</h1>
-                </a>
-                <form action="/todo/deletecard/<%= card.slug %>?_method=delete" method="post">
-                    <input type="submit" value="delete">
+            <div class="header">
+                <h1>Todo App</h1>
+                <form action="/authentication/logout?_method=DELETE" method="post">
+                    <input type="submit" value="Logout" class="input-btn">
                 </form>
-             <% }) %>
+            </div>
             
-        <% } %> 
+            <a href="/todo/addCard/<%=user.slug %>" class="control-btn">Add Card</a> 
+        
+            <div class="cards-holder">
+               
+                    <% if (todoCards.length !== 0) { %>
+                        <% todoCards.forEach(card => {%>
+                            <div class="card">
+                                <h1><%= card.cardTitle %></h1>
+                                <div class="grid">
+                                    <a class="box control-btn" id="<%= card.slug %>" href="todo/viewCard/<%=card.slug%>">
+                                        View Card
+                                    </a>
+                                    <a class="box control-btn" id="<%= card.slug %>" href="todo/editcard/<%=card.slug%>">
+                                        Edit
+                                    </a>
+                                    <form action="/todo/deletecard/<%= card.slug %>?_method=delete" method="post">
+                                        <input type="submit" value="delete" class="control-btn">
+                                    </form>
+                                </div>
+                                
+                            </div>
+                            
+                         <% }) %>
+                    <% } %> 
 
-    </div>
+            </div>
+        </div>
+    </section>
+   
 </body>
 </html>

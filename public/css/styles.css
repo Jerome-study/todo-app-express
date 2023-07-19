@@ -21,10 +21,201 @@ max-width: 100%;
 display: block;
 }
 
-html {
-    color-scheme: dark light;
+body {
+    min-height: 100vh;
+    background-color: #121212;
+    color: white;
 }
+
 
 .hide-btn, .cancel-btn-todo {
     display: none;
+}
+
+input {
+    background-color: #282828;
+    color: #ffffff;
+    padding: 10px 15px;
+}
+
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+.input-btn {
+    text-decoration: none;
+    border: 1px solid #ffffff;
+    background-color: #282828;
+    padding: 5px 10px;
+    color: white;
+    transition:all 0.3s ease;
+}
+
+.input-btn:hover {
+    background-color: #ffffff;
+    color: #181818;
+}
+
+
+section {
+    background-color: #181818;
+    min-height: 100vh;
+    padding: 1rem 0;
+}
+
+
+
+/* Typography */
+
+/* Welcome Page */
+.welcome-section h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+
+
+
+/* Authentication Page */
+.authentication-section h1 {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+/* Login Page and Register Page */
+.login-register-section h1 {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Todo Page */
+
+.control-btn {
+    padding: 5px 15px;
+    border: 1px solid #ffffff;
+    background-color: #282828;
+    transition:all 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: #ffffff;
+    color: #181818;
+}
+
+
+.card h1 {
+    font-size: 32px;
+}
+
+/* Typography */
+
+.container {
+    width: 90%;
+    margin-inline: auto;
+}
+
+/* Welcome page */
+.welcome-section, .authentication-section, .login-register-section, .edit-card-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-section, .authentication-section {
+    text-align: center;
+}
+
+.welcome-section h1, .welcome-section a {
+    margin: .5em 0;
+}
+
+
+/* Authenticatio and Login, Register Page */
+.authentication-section a {
+    display: block;
+    margin: 1em 0;
+}
+
+.login-register-section input, .login-register-section label {
+    display: block;
+    width: 100%;
+}
+.login-register-section input {
+    margin-bottom: 1em;
+}
+
+.login-register-btn, .login-register-btn p {
+    margin: 1em 0;
+    text-align: center;
+}
+
+.login-register-btn button {
+    width: 100%;
+}
+
+.message {
+    border: 1px solid white;
+    padding: 10px 20px;
+    background-color: #301934;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+
+/* Todo Page */
+
+.cards-holder {
+    display: grid;
+    gap: 1em;
+    margin-top: 3em;
+}
+
+.card {
+    border: 1px solid white;
+    padding: 1em;
+    text-align: center;
+    background-color: #301934;
+    border-radius: 8px;
+}
+
+.card input {
+    height: 100%;
+    width: 100%;
+}
+
+
+.grid {
+    display: grid;
+    gap:1em;
+}
+
+.grid a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Edit Card Page */
+.edit-card-section h1 {
+    font-size: 28px;
+    text-align: center;
+    
+}
+
+.edit-card-section label, .edit-card-section input {
+    display: block;
+    width: 100%;
+}
+
+.edit-card-section form {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 1em;
+}
+
+.edit-card-section a {
+    text-align: center;
 }

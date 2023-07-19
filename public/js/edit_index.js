@@ -4,12 +4,13 @@ const hideBtn = document.querySelectorAll('.hide-btn');
 const cancelBtn = document.querySelectorAll('.cancel-btn-todo');
 const text = []
 let originalValue
-
+let previousValues = []
+let previousBox = []
 cancelBtn.forEach( (btn,index) => {
 
     btn.addEventListener('click', () => {
         textBox[index].value = originalValue
-        window.location.reload();
+        reset()
     });
 });
 
@@ -26,6 +27,8 @@ editBtn.forEach(btn => {
 
 
 function editTodo() {
+    previousValues.push(textBox[this.id].value)
+    previousBox.push(textBox[this.id])
     reset();
     originalValue = textBox[this.id].value;
     textBox[this.id].removeAttribute('readonly');
@@ -35,6 +38,9 @@ function editTodo() {
 };
 
 function reset() {
+    if (previousBox.length > 1) {
+        previousBox[previousBox.length -2].value = previousValues[previousValues.length - 2]
+    }
     editBtn.forEach( btn => {
         btn.style.display = "block";
     });

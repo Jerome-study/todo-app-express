@@ -11,7 +11,7 @@
     <h1><%= card.cardTitle %></h1>
     <form action="/todo/addTodoItem/<%=card.slug %>" method="post">
         <input type="text" name="todo_item" required>
-        <input type="submit">
+        <input type="submit" class="control-btn" value="Add Todo">
     </form>
 
     <div class="todo-item-holder">
@@ -22,12 +22,12 @@
                     <p> Created: <%= todo.createdAt.toLocaleDateString()%></p>
                     <p> Updated: <%= todo.updatedAt.toLocaleDateString()%></p>
                 </div>
-                <input type="submit" value="Save" class="hide-btn">
+                <input type="submit" value="Save" class="hide-btn control-btn">
             </form>
-            <button id="<%=index%>" class="edit-btn-todo">edit</button>
-            <button class="cancel-btn-todo">Cancel</button>
+            <button id="<%=index%>" class="edit-btn-todo control-btn">edit</button>
+            <button class="cancel-btn-todo control-btn">Cancel</button>
             <form action="/todo/deleteTodoItem/<%=todo.slug%>?_method=delete" method="post">
-                <input type="submit" value="delete" class="delete-btn-todo">
+                <input type="submit" value="delete" class="delete-btn-todo control-btn">
             </form>
             
        <% }) %>
