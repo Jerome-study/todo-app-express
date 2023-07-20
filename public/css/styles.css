@@ -219,3 +219,63 @@ section {
 .edit-card-section a {
     text-align: center;
 }
+
+.change-btn {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    transition: all 0.3s ease;
+    width: 30px;
+}
+
+.change-btn:hover {
+    transform: scale(1.5);
+}
+
+.delete-btn {
+    background-image: url('../image/delete-icon-png-19.png');
+}
+
+.save-btn {
+    background-image: url('../image/save-icon.png');
+}
+
+.title-box {
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    overflow: scroll;
+    font-size: 26px;
+}
+
+.todo-form {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.todo-item-holder {
+    display: grid;
+    gap: 1em;
+    padding: 1em 0;
+}
+
+.todos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:#301934 ;
+    padding: 1em;
+}
+
+.delete-edit-btn {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-left: 1em;
+}
+

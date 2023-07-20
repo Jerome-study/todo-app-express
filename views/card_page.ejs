@@ -7,31 +7,44 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/todo">Go back</a>
-    <h1><%= card.cardTitle %></h1>
-    <form action="/todo/addTodoItem/<%=card.slug %>" method="post">
-        <input type="text" name="todo_item" required>
-        <input type="submit" class="control-btn" value="Add Todo">
-    </form>
 
-    <div class="todo-item-holder">
-        <% card.todos.forEach((todo, index) => { %>
-            <form action="/todo/editTodoItem/<%=todo.slug%>?_method=put" method="post">
-                <div>
-                    <input type="text" value="<%= todo.todoTitle %>" name="todo_title" readonly class="input-box" required>
-                    <p> Created: <%= todo.createdAt.toLocaleDateString()%></p>
-                    <p> Updated: <%= todo.updatedAt.toLocaleDateString()%></p>
-                </div>
-                <input type="submit" value="Save" class="hide-btn control-btn">
+
+
+    <section class="card-page-section">
+        <div class="container">
+            <a href="/todo">Go back</a>
+            <h1><%= card.cardTitle %></h1>
+            <form action="/todo/addTodoItem/<%=card.slug %>" method="post">
+                <input type="text" name="todo_item" required>
+                <input type="submit" class="control-btn" value="Add Todo">
             </form>
-            <button id="<%=index%>" class="edit-btn-todo control-btn">edit</button>
-            <button class="cancel-btn-todo control-btn">Cancel</button>
-            <form action="/todo/deleteTodoItem/<%=todo.slug%>?_method=delete" method="post">
-                <input type="submit" value="delete" class="delete-btn-todo control-btn">
-            </form>
-            
-       <% }) %>
-    </div>
+
+            <div class="todo-item-holder">
+                <% card.todos.forEach((todo, index) => { %>
+                    <div class="todos">
+                        <form action="/todo/editTodoItem/<%=todo.slug%>?_method=put" method="post" class="todo-form">
+                            <div>
+                                <input value="<%= todo.todoTitle %>" type="text"  id="<%=index%>" name="todo_title" readonly class="input-box title-box" required>
+                                <p><%= todo.createdAt.toLocaleDateString() %></p>
+                            </div>
+                            <input type="submit" value="" class="hide-btn  change-btn save-btn">
+                        </form>
+                        <div class="delete-edit-btn">
+                            <button id="<%=index%>" class="edit-btn-todo change-btn"><img src="/image/edit-new-icon-22.png" alt=""></button>
+                            <button class="cancel-btn-todo change-btn"><img src="/image/cancel-icon.png" alt=""></button>
+                            <form action="/todo/deleteTodoItem/<%=todo.slug%>?_method=delete" method="post">
+                                <input type="submit" value="" class="delete-btn-todo change-btn delete-btn">
+                            </form>
+                        </div>  
+                    </div>
+    
+            <% }) %>
+            </div>
+        </div>
+    </section>
+
+
+    
     <script src="/js/edit_index.js" ></script>
 </body>
 </html>

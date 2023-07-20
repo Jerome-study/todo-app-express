@@ -10,6 +10,7 @@ cancelBtn.forEach( (btn,index) => {
 
     btn.addEventListener('click', () => {
         textBox[index].value = originalValue
+        textBox[index].setAttribute('readonly', "")
         reset()
     });
 });
@@ -32,14 +33,16 @@ function editTodo() {
     reset();
     originalValue = textBox[this.id].value;
     textBox[this.id].removeAttribute('readonly');
+    textBox[this.id].focus({ focusVisible: true });
     this.style.display ="none";
     hideBtn[this.id].style.display = "block";
     cancelBtn[this.id].style.display = "block";
 };
 
-function reset() {
+function reset(id) {
     if (previousBox.length > 1) {
         previousBox[previousBox.length -2].value = previousValues[previousValues.length - 2]
+        textBox[previousBox[previousBox.length -2].id].setAttribute('readonly', "")
     }
     editBtn.forEach( btn => {
         btn.style.display = "block";
