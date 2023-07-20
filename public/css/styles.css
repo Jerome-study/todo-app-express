@@ -249,6 +249,7 @@ section {
     border: none;
     padding: 0;
     overflow: scroll;
+    text-overflow: ellipsis;
     font-size: 26px;
 }
 
