@@ -7,18 +7,45 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/todo">Go back</a>
-    <form action="/todo/createCard/<%=slug %>" method="post">
-        <div>
-            <% if (errors) { %>
-                <% errors.forEach(err => { %>
-                    <p> <%= err.message %></p>
-               <% }) %>
-           <% } %>
-            <label for="card_title">Card Title</label>
-            <input type="text" value="Card 1" name="card_title">
+    <header>
+        <div class="container">
+            <div class="header">
+                <h1>Todo App</h1>
+                <nav class="show-nav">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </nav>
+                <ul class="nav-list">
+                    <button class="change-btn exit-nav"><img src="/image/cancel-icon.png" alt=""></button>
+                    <li>
+                        <form action="/authentication/logout?_method=DELETE" method="post">
+                            <input type="submit" value="Logout" >
+                        </form>
+                    </li>                    
+                </ul>
+            </div>
         </div>
-        <input type="submit" value="Create Card">
-    </form>
+    </header>
+
+    <section class="edit-card-section">
+        <div class="container">
+        <form action="/todo/createCard/<%=slug %>" method="post">
+            <div>
+                <% if (errors) { %>
+                    <% errors.forEach(err => { %>
+                        <p> <%= err.message %></p>
+                <% }) %>
+            <% } %>
+                <label for="card_title">Card Title</label>
+                <input type="text" value="Card 1" name="card_title">
+            </div>
+            <input type="submit" value="Create Card" class="control-btn">
+            <a href="/todo" class="control-btn">Go back</a>
+        </form>
+        </div>
+    </section>
+    
+    <script src="/js/nav.js"></script>
 </body>
 </html>

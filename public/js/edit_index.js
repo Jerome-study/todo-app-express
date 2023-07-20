@@ -33,7 +33,8 @@ function editTodo() {
     reset();
     originalValue = textBox[this.id].value;
     textBox[this.id].removeAttribute('readonly');
-    textBox[this.id].focus({ focusVisible: true });
+    textBox[this.id].focus();
+    textBox[this.id].selectionStart = textBox[this.id].value.length
     this.style.display ="none";
     hideBtn[this.id].style.display = "block";
     cancelBtn[this.id].style.display = "block";
@@ -56,3 +57,20 @@ function reset(id) {
         cancel.style.display = "none";
     });
 };
+
+
+
+const navShow = document.querySelector('.show-nav');
+const navExit = document.querySelector('.exit-nav');
+const navList = document.querySelector('.nav-list');
+
+
+navShow.addEventListener('click', () => {
+    navList.style.display = "block";
+});
+
+navExit.addEventListener('click', () => {
+    navList.style.display = "none";
+});
+
+

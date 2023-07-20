@@ -64,6 +64,10 @@ section {
     padding: 1rem 0;
 }
 
+header {
+    background-color: #181818;
+    padding: 1rem 0;
+}
 
 
 /* Typography */
@@ -106,7 +110,18 @@ section {
 
 
 .card h1 {
-    font-size: 32px;
+    font-size: 24px;
+    font-weight: 700;
+    width: 100%;
+    
+}
+
+.card-title {
+    height: 100%;
+    max-height: 100px;
+    max-width: 40rem;
+    overflow: auto;
+    white-space: nowrap;
 }
 
 /* Typography */
@@ -117,7 +132,7 @@ section {
 }
 
 /* Welcome page */
-.welcome-section, .authentication-section, .login-register-section, .edit-card-section {
+.welcome-section, .authentication-section, .login-register-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,18 +183,23 @@ section {
 /* Todo Page */
 
 .cards-holder {
-    display: grid;
-    gap: 1em;
-    margin-top: 3em;
+    padding: 2rem 0;
 }
 
 .card {
-    border: 1px solid white;
+    border: 1px solid #301934;
     padding: 1em;
-    text-align: center;
-    background-color: #301934;
+    background-color: white;
     border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #301934;
+    gap: 1em;
+    margin-bottom: 1rem;
 }
+
+
 
 .card input {
     height: 100%;
@@ -187,9 +207,18 @@ section {
 }
 
 
-.grid {
+/* .grid {
     display: grid;
     gap:1em;
+} */
+
+.grid  {
+    display: flex;
+    gap: 1em;
+}
+.grid > * {
+    flex: 1;
+    
 }
 
 .grid a {
@@ -248,29 +277,33 @@ section {
     background-color: transparent;
     border: none;
     padding: 0;
-    overflow: scroll;
-    text-overflow: ellipsis;
     font-size: 26px;
+    color: #301934;
+    white-space: nowrap;
+    resize: none;
+    font-weight: 700;
 }
 
 .todo-form {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: .5em;
+    gap: 1em;
 }
 
 .todo-item-holder {
     display: grid;
     gap: 1em;
-    padding: 1em 0;
+    padding: 2em 0;
 }
 
 .todos {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color:#301934 ;
+    background-color:#ffffff ;
     padding: 1em;
+    border-radius: 8px;
 }
 
 .delete-edit-btn {
@@ -280,3 +313,86 @@ section {
     margin-left: 1em;
 }
 
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1em;
+}
+
+.header h1 {
+    color: #301934;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.header ul {
+    list-style: none;
+}
+
+.header input {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: #301934;
+}
+
+.nav-img {
+    width: 100%;
+    max-width: 5rem;
+    
+}
+.nav-list {
+    display: none;
+    position: fixed;
+    top: 0;
+    background-color: whitesmoke;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 44%;
+    z-index: 999;
+    padding: 10rem 0;
+    font-size: 18px;
+}
+
+
+
+.nav-list li a {
+    color: #301934;
+    margin-left: .8em;
+}
+
+
+
+.exit-nav {
+    position: absolute;
+    top: 0;
+    padding: 3rem 0;
+    margin-left: 1rem;
+}
+
+.line {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+
+.add-todo-input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+.add-todo {
+    display: flex;
+    gap: 1em;
+    
+}

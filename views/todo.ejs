@@ -8,14 +8,29 @@
 </head>
 <body>
 
-    <section class="todo-section">
+
+    <header>
         <div class="container">
             <div class="header">
                 <h1>Todo App</h1>
-                <form action="/authentication/logout?_method=DELETE" method="post">
-                    <input type="submit" value="Logout" class="input-btn">
-                </form>
+                <nav class="show-nav">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </nav>
+                <ul class="nav-list">
+                    <button class="change-btn exit-nav"><img src="/image/cancel-icon.png" alt=""></button>
+                    <li>
+                        <form action="/authentication/logout?_method=DELETE" method="post">
+                            <input type="submit" value="Logout" >
+                        </form>
+                    </li>
+                </ul>
             </div>
+        </div>
+    </header>
+    <section class="todo-section">
+        <div class="container">
             
             <a href="/todo/addCard/<%=user.slug %>" class="control-btn">Add Card</a> 
         
@@ -24,16 +39,18 @@
                     <% if (todoCards.length !== 0) { %>
                         <% todoCards.forEach(card => {%>
                             <div class="card">
-                                <h1><%= card.cardTitle %></h1>
+                                <div class="card-title">
+                                    <h1><%= card.cardTitle %></h1>
+                                </div>
                                 <div class="grid">
-                                    <a class="box control-btn" id="<%= card.slug %>" href="todo/viewCard/<%=card.slug%>">
-                                        View Card
+                                    <a class="change-btn" id="<%= card.slug %>" href="todo/viewCard/<%=card.slug%>">
+                                        <img src="/image/view-icon.png" alt="">
                                     </a>
-                                    <a class="box control-btn" id="<%= card.slug %>" href="todo/editcard/<%=card.slug%>">
-                                        Edit
+                                    <a class="change-btn" id="<%= card.slug %>" href="todo/editcard/<%=card.slug%>">
+                                        <img src="/image/edit-new-icon-22.png" alt="">
                                     </a>
                                     <form action="/todo/deletecard/<%= card.slug %>?_method=delete" method="post">
-                                        <input type="submit" value="delete" class="control-btn">
+                                        <input type="submit" value="" class="change-btn delete-btn">
                                     </form>
                                 </div>
                                 
@@ -45,6 +62,7 @@
             </div>
         </div>
     </section>
-   
+    
+    <script src="/js/nav.js"></script>
 </body>
 </html>

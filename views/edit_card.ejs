@@ -7,6 +7,26 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="header">
+                <h1>Todo App</h1>
+                <nav class="show-nav">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </nav>
+                <ul class="nav-list">
+                    <button class="change-btn exit-nav"><img src="/image/cancel-icon.png" alt=""></button>
+                    <li>
+                        <form action="/authentication/logout?_method=DELETE" method="post">
+                            <input type="submit" value="Logout" >
+                        </form>
+                    </li>           
+                </ul>
+            </div>
+        </div>
+    </header>
     <section class="edit-card-section">
         <div class="container">
             <h1>Edit Card</h1>
@@ -21,6 +41,6 @@
             </form>
         </div>
     </section>
-    
+    <script src="/js/nav.js"></script>
 </body>
 </html>

@@ -9,14 +9,39 @@
 <body>
 
 
+    <header>
+        <div class="container">
+            <div class="header">
+                <h1>Todo App</h1>
+                <nav class="show-nav">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </nav>
+                <ul class="nav-list">
+                    <button class="change-btn exit-nav"><img src="/image/cancel-icon.png" alt=""></button>
+                    <li>
+                        <form action="/authentication/logout?_method=DELETE" method="post">
+                            <input type="submit" value="Logout" >
+                        </form>
+                    </li>
+                    <li>
+                        <a href="/todo">Go Back</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+
 
     <section class="card-page-section">
         <div class="container">
-            <a href="/todo">Go back</a>
-            <h1><%= card.cardTitle %></h1>
-            <form action="/todo/addTodoItem/<%=card.slug %>" method="post">
-                <input type="text" name="todo_item" required>
-                <input type="submit" class="control-btn" value="Add Todo">
+            <form action="/todo/addTodoItem/<%=card.slug %>" method="post" class="add-todo">
+                <input type="text" name="todo_item" required class="add-todo-input">
+                <input type="submit" class="control-btn" value="+">
             </form>
 
             <div class="todo-item-holder">
@@ -24,8 +49,9 @@
                     <div class="todos">
                         <form action="/todo/editTodoItem/<%=todo.slug%>?_method=put" method="post" class="todo-form">
                             <div>
-                                <input value="<%= todo.todoTitle %>" type="text"  id="<%=index%>" name="todo_title" readonly class="input-box title-box" required>
-                                <p><%= todo.createdAt.toLocaleDateString() %></p>
+                                
+                                <textarea  rows="1" type="text"  id="<%=index%>" name="todo_title" readonly class="input-box title-box" required><%= todo.todoTitle %></textarea>
+                                
                             </div>
                             <input type="submit" value="" class="hide-btn  change-btn save-btn">
                         </form>
