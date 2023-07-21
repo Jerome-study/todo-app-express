@@ -128,6 +128,7 @@ header {
 
 .container {
     width: 90%;
+    max-width: 70rem;
     margin-inline: auto;
 }
 
@@ -316,6 +317,8 @@ header {
 
 /* Header */
 
+
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -395,4 +398,14 @@ header {
     display: flex;
     gap: 1em;
     
+}
+
+
+@media (min-width: 765px) {
+    .cards-holder {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 1em;
+        align-items: center;
+    }
 }
